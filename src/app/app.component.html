@@ -1,0 +1,15 @@
+<section>
+
+  <article class="flex-container">
+    <h1 class="flex-item header">
+      Flexbox Layout
+    </h1>
+    <div class="flex-item" *ngFor="let user of users">
+      {{user.firstName}} {{user.lastName}}, {{user.email}}
+    </div>
+    <div class="flex-item footer">
+      Footer
+    </div>
+  </article>
+
+</section>

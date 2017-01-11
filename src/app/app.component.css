@@ -1,0 +1,93 @@
+/* FLEXBOX LAYOUT */
+
+
+.flex-container {
+    /* 
+        display: set display flex 
+        this is where we set the items to be flex property
+    */
+    display: flex; 
+    /* 
+        flex-direction: set flex direction 
+        defining the direction of the items, could also be row-reverse, column or column-reverse
+    */
+    flex-direction: row;
+    /* 
+        flex-wrap: wrap if necessary
+        prevent wrap by using nowrap instead, but this would create a horizontal scroll if overflown
+        also available is wrap-reverse for reverse wrapping (RTL instead of LTR by default)
+    */
+    flex-wrap: wrap;
+    /* 
+        align-items: set positioning for items
+        although center is most commonly used, you can also use 
+
+        flex-start - aligns the items to the top and left of the parent
+        flex-end   - aligns the items to the bottom and right of the parent
+        baseline   - aligns items to where their text ends creating a more jaggered look
+        stretch    - stretches the items to fill the space as necessary
+        center     - aligns the items to the vertical center of the parent, +1 to this cause it aligns each item to the
+                     center of the parent vertically irrespective of the items own height.
+    */
+    align-items: center;
+    /* 
+        justify-content: placing the entire set of items
+        although space-around is most commonly used, you can also use 
+
+        flex-start    - aligns the entire group of items to the top and left of the parent
+        flex-end      - aligns the entire group of items to the bottom and right of the parent
+        stretch       - stretches the entire group of items to fill the space as necessary
+        center        - aligns the entire group of items to the vertical center of the parent
+        space-between - spaces out the rows with equal spacing between the rows only, first and 
+                        last row are pressed to the edges.
+        space-around -  spaces out the rows with equal spacing between the rows including the top of the first and 
+                        bottom of the last row creating a uniform look for the entire set of items.
+    */
+    justify-content: space-around;
+
+
+    /* Other Styles*/
+
+    background: tomato;
+    color: white;
+    padding: 10px;
+}
+
+.flex-item {
+    /* 
+        flex-grow: this can be given as a ratio, if given as 1, after taking up the required space,
+                    the rest of the space is divided equally among all the elements
+        
+        in this case we ask items to share all the available space equally
+    */
+    flex-grow: 1;
+
+    /* Other styles */
+    border: 1px dashed purple;
+    margin: 10px 5px;
+
+}
+
+.flex-item:nth-child(even) {
+    /* for fun :) let the `even` elements grow upto twice of their conuterpart `odd` using the remaining space
+        for example, if 300px space if left on a row containing one `even` and one `odd` element, split the `extra`
+        space in the ration of `2:1` or `200px` and `100px` respectively in this case.
+     */
+    flex-grow: 2;
+}
+
+.header, .footer {
+    /* 
+        flex-basis: set the width in percentage, px, em or rem, the calculation for the `remaining space` is done 
+                    after excluding this space from the entire width of the row.
+        
+        here we ask the header and footer to take 100% width so that it takes the entire space and the next items starts
+        from the next line
+    */
+    flex-basis : 100%;
+
+     /* Other Styles*/
+    text-align: center;
+    padding: 10px 0;
+    border: 1px dashed purple;
+}
